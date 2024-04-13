@@ -1,0 +1,1 @@
+想要加图直接往pics添加后发pull request即可
