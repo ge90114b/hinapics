@@ -16,15 +16,10 @@ function ensureDistFolder() {
   }  
 }  
 
-// 复制图片到目标文件夹  
-gulp.task('copy-images', function() {  
-  ensureDistFolder()
-  return gulp.src(srcDir + '**/*')  
-    .pipe(copy(destDir, { prefix: 1 })); // prefix: 1 保持目录结构  
-});  
-  
+
 // 生成HTML文件  
 gulp.task('generate-html', function(done) {  
+  ensureDistFolder();
   // 读取图片文件名并存储到数组中  
   const imageFiles = fs.readdirSync(srcDir)  
     .filter(file => path.extname(file).match(/\.(png|jpe?g|gif|svg)$/i));  
@@ -52,4 +47,4 @@ gulp.task('generate-html', function(done) {
 });
   
 // 默认任务  
-gulp.task('default', gulp.series('copy-images', 'generate-html'));
+gulp.task('default', gulp.series( 'generate-html'));
