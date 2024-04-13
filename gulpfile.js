@@ -7,7 +7,7 @@ const path = require('path');
 // 定义源文件和目标文件夹  
 const srcDir = 'pics/';  
 const destDir = 'dist/';  
-const htmlDest = path.join(destDir, 'files.html');  
+const htmlDest = path.join(destDir, 'index.html');  
   
 // 复制图片到目标文件夹  
 gulp.task('copy-images', function() {  
