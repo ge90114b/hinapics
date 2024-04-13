@@ -40,7 +40,7 @@ gulp.task('generate-html', function(done) {
           <title>Hina</title>   
           </head>  
           <body>  
-            <pre>${jsonFilenames}</pre>  
+            ${jsonFilenames} 
           </body>  
           </html>`;  
     
