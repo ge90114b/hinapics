@@ -8,9 +8,17 @@ const path = require('path');
 const srcDir = 'pics/';  
 const destDir = 'dist/';  
 const htmlDest = path.join(destDir, 'index.html');  
-  
+
+// 创建一个函数来确保dist文件夹存在  
+function ensureDistFolder() {  
+  if (!fs.existsSync(path.join(__dirname, 'dist'))) {  
+    fs.mkdirSync(path.join(__dirname, 'dist'), { recursive: true });  
+  }  
+}  
+
 // 复制图片到目标文件夹  
 gulp.task('copy-images', function() {  
+  ensureDistFolder()
   return gulp.src(srcDir + '**/*')  
     .pipe(copy(destDir, { prefix: 1 })); // prefix: 1 保持目录结构  
 });  
